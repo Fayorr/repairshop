@@ -23,7 +23,7 @@ export function Header() {
 					</Link>
 				</div>
 
-				<div className='flex items-center'>
+				<div className='flex items-center '>
 					<NavButton
 						href='/tickets'
 						label='Tickets'
