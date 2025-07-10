@@ -1,0 +1,28 @@
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\DELL\\Desktop\\WebDev Project\\PROJECTS\\NEXT\\repairshop\\node_modules\\@sentry\\node',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\DELL\Desktop\WebDev Project\PROJECTS\NEXT\repairshop\node_modules\@sentry\node\node_modules\@opentelemetry\core'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\DELL\\Desktop\\WebDev Project\\PROJECTS\\NEXT\\repairshop\\node_modules\\@sentry\\node\\node_modules\\@opentelemetry\\core'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\DELL\\Desktop\\WebDev Project\\PROJECTS\\NEXT\\repairshop\\node_modules\\@sentry',
+npm warn cleanup     [Error: EPERM: operation not permitted, lstat 'C:\Users\DELL\Desktop\WebDev Project\PROJECTS\NEXT\repairshop\node_modules\@sentry\vercel-edge\node_modules\@opentelemetry\core\node_modules\@opentelemetry\semantic-conventions\build\esm\resource\index.js'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'lstat',
+npm warn cleanup       path: 'C:\\Users\\DELL\\Desktop\\WebDev Project\\PROJECTS\\NEXT\\repairshop\\node_modules\\@sentry\\vercel-edge\\node_modules\\@opentelemetry\\core\\node_modules\\@opentelemetry\\semantic-conventions\\build\\esm\\resource\\index.js'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code ECONNRESET
+npm error network aborted
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly.  See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\DELL\AppData\Local\npm-cache\_logs\2025-07-10T14_32_40_093Z-debug-0.log
