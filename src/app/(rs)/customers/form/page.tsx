@@ -4,7 +4,7 @@ import { BackButton } from '@/components/ui/BackButton';
 export default async function CustomerFormPage({
   searchParams,
 }: {
-  searchparams: Promise<{ [key: string]: string | undefined }>;
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   try {
     const { customerId } = await searchParams;

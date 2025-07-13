@@ -14,10 +14,6 @@ type BackButtonProps = {
     | 'link'
     | 'destructive'
     | 'secondary'
-    | 'success'
-    | 'info'
-    | 'warning'
-    | 'error'
     | null
     | undefined;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
