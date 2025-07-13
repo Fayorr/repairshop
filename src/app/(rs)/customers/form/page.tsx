@@ -26,6 +26,12 @@ export default async function CustomerFormPage({
       // Put customer form component
     } else {
       //new customer form component
+      return (
+        <div>
+          <h2 className="text-2xl mb-2">Add New Customer</h2>
+          {/* Add your new customer form component here */}
+        </div>
+      );
     }
   } catch (e) {
     if (e instanceof Error) {
