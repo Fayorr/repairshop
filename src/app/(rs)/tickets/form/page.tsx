@@ -1,6 +1,7 @@
 import { getCustomer } from '@/lib/queries/getCustomers';
 import { getTicket } from '@/lib/queries/getTickets';
 import { BackButton } from '@/components/ui/BackButton';
+import * as Sentry from '@sentry/nextjs';
 
 export default async function TicketFormPage({
   searchParams,
@@ -65,6 +66,7 @@ export default async function TicketFormPage({
     }
   } catch (e) {
     if (e instanceof Error) {
+      Sentry.captureException(e);
       throw new Error(e.message);
     }
   }
