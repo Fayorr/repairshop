@@ -4,35 +4,33 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from '@/components/ui/form';
 // import { Button } from '@/components/ui/button';
+
 import {
   insertTicketSchema,
-  InsertTicketSchemaType,
-  SelectTicketSchemaType,
+  type InsertTicketSchemaType,
+  type SelectTicketSchemaType,
 } from '@/zod-schemas/ticket';
-import { SelectCustomerSchemaType } from '@/zod-schemas/customers';
-// import { z } from 'zod';
+import { SelectCustomerSchemaType } from '@/zod-schemas/customer';
 
-// export type InsertTicketFormValues = z.infer<typeof insertTicketSchema>;
-
-type TicketFormProps = {
+type Props = {
   customer: SelectCustomerSchemaType;
   ticket?: SelectTicketSchemaType;
 };
 
-export default function TicketForm({ customer, ticket }: TicketFormProps) {
+export default function TicketForm({ customer, ticket }: Props) {
   const defaultValues: InsertTicketSchemaType = {
-    id: ticket?.id ?? 'New',
+    id: ticket?.id ?? '(New)',
+    customerId: ticket?.customerId ?? customer.id,
     title: ticket?.title ?? '',
     description: ticket?.description ?? '',
-    tech: ticket?.tech ?? 'new-ticket@example.com',
-    customerId: ticket?.customerId ?? customer.id,
     completed: ticket?.completed ?? false,
+    tech: ticket?.tech ?? 'new-ticket@example.com',
   };
 
   const form = useForm<InsertTicketSchemaType>({
     mode: 'onBlur',
-    defaultValues,
     resolver: zodResolver(insertTicketSchema),
+    defaultValues,
   });
 
   async function submitForm(data: InsertTicketSchemaType) {
@@ -43,8 +41,7 @@ export default function TicketForm({ customer, ticket }: TicketFormProps) {
     <div className="flex flex-col gap-1 sm:px-8">
       <div>
         <h2 className="text-2xl font-bold">
-          {ticket?.id ? 'Edit' : 'New'} Ticket{' '}
-          {ticket?.id ? `# ${ticket.id}` : 'Form'}
+          {ticket?.id ? `Edit Ticket # ${ticket.id}` : 'New Ticket Form'}
         </h2>
       </div>
       <Form {...form}>

@@ -1,7 +1,7 @@
-import { getCustomer } from '@/lib/queries/getCustomers';
-import { getTicket } from '@/lib/queries/getTickets';
+import { getCustomer } from '@/lib/queries/getCustomer';
+import { getTicket } from '@/lib/queries/getTicket';
 import { BackButton } from '@/components/ui/BackButton';
-import * as Sentry from '@sentry/nextjs';
+// import * as Sentry from '@sentry/nextjs';
 import TicketForm from '@/app/(rs)/tickets/form/TicketForm';
 
 export default async function TicketFormPage({
@@ -22,19 +22,22 @@ export default async function TicketFormPage({
         </>
       );
     }
-    //New ticket form
+
+    // New ticket form
     if (customerId) {
       const customer = await getCustomer(parseInt(customerId));
+
       if (!customer) {
         return (
           <>
             <h2 className="text-2xl mb-2">
-              Customer ID {customerId} not found.
+              Customer ID #{customerId} not found
             </h2>
             <BackButton title="Go Back" variant="default" />
           </>
         );
       }
+
       if (!customer.active) {
         return (
           <>
@@ -45,12 +48,16 @@ export default async function TicketFormPage({
           </>
         );
       }
-      //return ticket form
+
+      // return ticket form
+      console.log(customer);
       return <TicketForm customer={customer} />;
     }
-    //Edit ticket form
+
+    // Edit ticket form
     if (ticketId) {
       const ticket = await getTicket(parseInt(ticketId));
+
       if (!ticket) {
         return (
           <>
@@ -59,16 +66,17 @@ export default async function TicketFormPage({
           </>
         );
       }
+
       const customer = await getCustomer(ticket.customerId);
 
-      //return ticket form
-      console.log('ticket', ticket);
-      console.log('customer', customer);
+      // return ticket form
+      console.log('ticket: ', ticket);
+      console.log('customer: ', customer);
       return <TicketForm customer={customer} ticket={ticket} />;
     }
   } catch (e) {
     if (e instanceof Error) {
-      Sentry.captureException(e);
+      // Sentry.captureException(e);
       throw e;
     }
   }

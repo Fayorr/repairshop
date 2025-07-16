@@ -1,5 +1,5 @@
 {
-  "id": "ceca7c86-0623-4532-aa01-cb29bfd60e50",
+  "id": "57e54bec-b637-43b6-b78f-eede774a81e7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -115,9 +115,7 @@
           ]
         }
       },
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     },
     "public.tickets": {
       "name": "tickets",
@@ -194,16 +192,12 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
+      "checkConstraints": {}
     }
   },
   "enums": {},
   "schemas": {},
   "sequences": {},
-  "roles": {},
-  "policies": {},
   "views": {},
   "_meta": {
     "columns": {},

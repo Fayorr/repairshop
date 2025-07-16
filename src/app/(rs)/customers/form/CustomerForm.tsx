@@ -4,30 +4,30 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from '@/components/ui/form';
 // import { Button } from '@/components/ui/button';
+
 import {
   insertCustomerSchema,
-  InsertCustomerSchemaType,
-  SelectCustomerSchemaType,
-} from '@/zod-schemas/customers';
-// import { z } from 'zod';
+  type InsertCustomerSchemaType,
+  type SelectCustomerSchemaType,
+} from '@/zod-schemas/customer';
 
-type CustomerFormProps = {
+type Props = {
   customer?: SelectCustomerSchemaType;
 };
 
-export default function CustomerForm({ customer }: CustomerFormProps) {
+export default function CustomerForm({ customer }: Props) {
   const defaultValues: InsertCustomerSchemaType = {
-    id: customer?.id || 0,
-    firstName: customer?.firstName || '',
-    lastName: customer?.lastName || '',
-    email: customer?.email || '',
-    phone: customer?.phone || '',
-    address1: customer?.address1 || '',
-    address2: customer?.address2 || '',
-    city: customer?.city || '',
-    state: customer?.state || '',
-    zip: customer?.zip || '',
-    notes: customer?.notes || '',
+    id: customer?.id ?? 0,
+    firstName: customer?.firstName ?? '',
+    lastName: customer?.lastName ?? '',
+    address1: customer?.address1 ?? '',
+    address2: customer?.address2 ?? '',
+    city: customer?.city ?? '',
+    state: customer?.state ?? '',
+    zip: customer?.zip ?? '',
+    phone: customer?.phone ?? '',
+    email: customer?.email ?? '',
+    notes: customer?.notes ?? '',
   };
 
   const form = useForm<InsertCustomerSchemaType>({
@@ -36,7 +36,6 @@ export default function CustomerForm({ customer }: CustomerFormProps) {
     defaultValues,
   });
 
-  // Fixed: Use correct type for submitForm parameter
   async function submitForm(data: InsertCustomerSchemaType) {
     console.log(data);
   }
@@ -45,7 +44,7 @@ export default function CustomerForm({ customer }: CustomerFormProps) {
     <div className="flex flex-col gap-1 sm:px-8">
       <div>
         <h2 className="text-2xl font-bold">
-          {customer ? 'Edit' : 'New'} Customer Form
+          {customer?.id ? 'Edit' : 'New'} Customer Form
         </h2>
       </div>
       <Form {...form}>
