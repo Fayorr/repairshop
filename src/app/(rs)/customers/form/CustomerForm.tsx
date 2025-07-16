@@ -9,6 +9,7 @@ import {
   InsertCustomerSchemaType,
   SelectCustomerSchemaType,
 } from '@/zod-schemas/customers';
+// import { z } from 'zod';
 
 type CustomerFormProps = {
   customer?: SelectCustomerSchemaType;
@@ -34,9 +35,12 @@ export default function CustomerForm({ customer }: CustomerFormProps) {
     resolver: zodResolver(insertCustomerSchema),
     defaultValues,
   });
+
+  // Fixed: Use correct type for submitForm parameter
   async function submitForm(data: InsertCustomerSchemaType) {
     console.log(data);
   }
+
   return (
     <div className="flex flex-col gap-1 sm:px-8">
       <div>

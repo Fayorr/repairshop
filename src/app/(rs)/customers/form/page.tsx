@@ -40,7 +40,7 @@ export default async function CustomerFormPage({
   } catch (e) {
     if (e instanceof Error) {
       Sentry.captureException(e);
-      throw new Error(e.message);
+      throw e;
     }
   }
 }

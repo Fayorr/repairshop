@@ -10,6 +10,9 @@ import {
   SelectTicketSchemaType,
 } from '@/zod-schemas/ticket';
 import { SelectCustomerSchemaType } from '@/zod-schemas/customers';
+// import { z } from 'zod';
+
+// export type InsertTicketFormValues = z.infer<typeof insertTicketSchema>;
 
 type TicketFormProps = {
   customer: SelectCustomerSchemaType;
@@ -25,14 +28,17 @@ export default function TicketForm({ customer, ticket }: TicketFormProps) {
     customerId: ticket?.customerId ?? customer.id,
     completed: ticket?.completed ?? false,
   };
+
   const form = useForm<InsertTicketSchemaType>({
     mode: 'onBlur',
     defaultValues,
     resolver: zodResolver(insertTicketSchema),
   });
+
   async function submitForm(data: InsertTicketSchemaType) {
     console.log(data);
   }
+
   return (
     <div className="flex flex-col gap-1 sm:px-8">
       <div>

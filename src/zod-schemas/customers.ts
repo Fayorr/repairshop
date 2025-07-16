@@ -3,30 +3,27 @@ import { customers } from '@/db/schema';
 import { z } from 'zod';
 
 export const insertCustomerSchema = createInsertSchema(customers, {
-  firstName: (schema) => schema.min(1, 'First name is required'),
-  lastName: (schema) => schema.min(1, 'Last name is required'),
-  email: (schema) => schema.email('Invalid email address'),
+  firstName: (schema) => schema.firstName.min(1, 'First name is required'),
+  lastName: (schema) => schema.lastName.min(1, 'Last name is required'),
+  email: (schema) => schema.email.email('Invalid email address'),
   phone: (schema) =>
-    schema.regex(
+    schema.phone.regex(
       /^\d{3}-\d{3}-\d{4}$/,
       'Invalid Phone number format. Use XXX-XXX-XXXX',
     ),
-  address1: (schema) => schema.min(1, 'Address is required'),
-  city: (schema) => schema.min(1, 'City is required'),
-  state: (schema) => schema.length(2, 'State must be exactly 2 characters'),
+  address1: (schema) => schema.address1.min(1, 'Address is required'),
+  city: (schema) => schema.city.min(1, 'City is required'),
+  state: (schema) => schema.state.length(2, 'State must be exactly 2 characters'),
   zip: (schema) =>
-    schema.regex(
+    schema.zip.regex(
       /^\d{5}(-\d{4})?$/,
       'Invalid Zip Code. Use 5 digits or 5 digits followed by a hyphen and 4 digits',
     ),
 });
 
-export const customerSelectSchema = createSelectSchema(customers);
+export const selectCustomerSchema = createSelectSchema(customers);
 
 
+// Alternative naming convention to match your other files
+export type SelectCustomerSchemaType = z.infer<typeof selectCustomerSchema>;
 export type InsertCustomerSchemaType = z.infer<typeof insertCustomerSchema>;
-export type SelectCustomerSchemaType = z.infer<typeof customerSelectSchema>;
-
-// Optional: If you need input/output types separately
-// export type InsertCustomerInput = z.input<typeof insertCustomerSchema>;
-// export type InsertCustomerOutput = z.output<typeof insertCustomerSchema>;
