@@ -23,22 +23,28 @@ export function InputWithLabel<S>({
   className,
   ...props
 }: Props<S>) {
-    const form = useFormContext();
-    
-    return (
-        <FormField
-            control={form.control}
-            name={nameInSchema}
-            render={({field}) => (
-                <FormItem>
-                    <FormLabel className='text-base'
-                        htmlFor={nameInSchema}>{fieldTitle}</FormLabel>
-                    <FormControl>
-                        <Input id={nameInSchema}
-                        className={`w-full mx-w-xs disabled:text-blue-500 dark:disabled:text-blue-500 disabled:opacity-75 ${className}`}    {...field} {...props} />
-                    </FormControl>
-                    <FormMessage />
-                </FormItem>
-            )}
-        />
+  const form = useFormContext();
+
+  return (
+    <FormField
+      control={form.control}
+      name={nameInSchema}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="text-base" htmlFor={nameInSchema}>
+            {fieldTitle}
+          </FormLabel>
+          <FormControl>
+            <Input
+              id={nameInSchema}
+              className={`w-full mx-w-xs disabled:text-blue-500 dark:disabled:text-blue-500 disabled:opacity-75 ${className}`}
+              {...field}
+              {...props}
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
 }

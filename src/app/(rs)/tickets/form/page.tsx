@@ -1,7 +1,7 @@
 import { getCustomer } from '@/lib/queries/getCustomer';
 import { getTicket } from '@/lib/queries/getTicket';
 import { BackButton } from '@/components/ui/BackButton';
-// import * as Sentry from '@sentry/nextjs';
+import * as Sentry from '@sentry/nextjs';
 import TicketForm from '@/app/(rs)/tickets/form/TicketForm';
 
 export default async function TicketFormPage({
@@ -76,7 +76,7 @@ export default async function TicketFormPage({
     }
   } catch (e) {
     if (e instanceof Error) {
-      // Sentry.captureException(e);
+      Sentry.captureException(e);
       throw e;
     }
   }
