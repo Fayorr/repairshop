@@ -5,9 +5,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from '@/components/ui/form';
 // import { Button } from '@/components/ui/button';
 
+//i removed the type before InsertCustomerSchemaType
 import {
   insertCustomerSchema,
-  type InsertCustomerSchemaType,
+  InsertCustomerSchemaType,
   type SelectCustomerSchemaType,
 } from '@/zod-schemas/customer';
 
