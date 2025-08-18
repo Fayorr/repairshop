@@ -4,14 +4,16 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
+import { SelectWithLabel } from '@/components/inputs/SelectWithLabel';
 import { InputWithLabel } from '@/components/inputs/InputWithLabel';
-
+import { StatesArray } from '@/constants/StatesArray';
 //i removed the type before InsertCustomerSchemaType
 import {
   insertCustomerSchema,
   type InsertCustomerSchemaType,
   type SelectCustomerSchemaType,
 } from '@/zod-schemas/customer';
+import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
 
 type Props = {
   customer?: SelectCustomerSchemaType;
@@ -75,6 +77,11 @@ export default function CustomerForm({ customer }: Props) {
               fieldTitle="City"
               nameInSchema="city"
             />
+            <SelectWithLabel<InsertCustomerSchemaType>
+              fieldTitle="State"
+              nameInSchema="state"
+              data={StatesArray}
+            />
           </div>
           <div className="flex flex-col gap-4 w-full m-w-xs">
             <InputWithLabel<InsertCustomerSchemaType>
@@ -89,10 +96,13 @@ export default function CustomerForm({ customer }: Props) {
               fieldTitle="Phone"
               nameInSchema="phone"
             />
-            <InputWithLabel<InsertCustomerSchemaType>
-              fieldTitle="State"
-              nameInSchema="state"
+
+            <TextAreaWithLabel<InsertCustomerSchemaType>
+              fieldTitle="Notes"
+              nameInSchema="notes"
+              className="h-40"
             />
+
             <div className="flex gap-2">
               <Button
                 type="submit"
