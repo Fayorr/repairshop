@@ -6,6 +6,7 @@ import { Form } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { SelectWithLabel } from '@/components/inputs/SelectWithLabel';
 import { InputWithLabel } from '@/components/inputs/InputWithLabel';
+import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
 import { StatesArray } from '@/constants/StatesArray';
 //i removed the type before InsertCustomerSchemaType
 import {
@@ -13,7 +14,6 @@ import {
   type InsertCustomerSchemaType,
   type SelectCustomerSchemaType,
 } from '@/zod-schemas/customer';
-import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
 
 type Props = {
   customer?: SelectCustomerSchemaType;
