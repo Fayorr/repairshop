@@ -29,7 +29,7 @@ export default async function CustomerFormPage({
       // put customer form component
       return <CustomerForm customer={customer} />;
     } else {
-      // new customer form componenttt
+      // new customer form componenttt......
       return <CustomerForm />;
     }
   } catch (e) {
