@@ -48,7 +48,7 @@ export default function CustomerForm({ customer }: Props) {
     <div className="flex flex-col gap-1 sm:px-8">
       <div>
         <h2 className="text-2xl font-bold">
-          {customer?.id ? 'Edit' : 'New'} Customer Form.
+          {customer?.id ? 'Edit' : 'New'} Customer Form
         </h2>
       </div>
       <Form {...form}>
