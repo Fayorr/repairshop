@@ -8,7 +8,6 @@ import { SelectWithLabel } from '@/components/inputs/SelectWithLabel';
 import { InputWithLabel } from '@/components/inputs/InputWithLabel';
 import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
 import { StatesArray } from '@/constants/StatesArray';
-//i removed the type before InsertCustomerSchemaType
 import {
   insertCustomerSchema,
   type InsertCustomerSchemaType,
