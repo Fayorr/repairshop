@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { SelectWithLabel } from '@/components/inputs/SelectWithLabel';
 import { InputWithLabel } from '@/components/inputs/InputWithLabel';
 import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
-import { StatesArray } from '@/constants/StatesArray';
+import { StatesArray } from '@/constants/StatesArray'; 
 import {
   insertCustomerSchema,
   type InsertCustomerSchemaType,
