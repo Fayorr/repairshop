@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { SelectWithLabel } from '@/components/inputs/SelectWithLabel';
 import { InputWithLabel } from '@/components/inputs/InputWithLabel';
 import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
-import { StatesArray } from '@/constants/StatesArray'; 
+import { StatesArray } from '@/constants/StatesArray';
 import {
   insertCustomerSchema,
   type InsertCustomerSchemaType,
@@ -61,7 +61,7 @@ export default function CustomerForm({ customer }: Props) {
               nameInSchema="firstName"
             />
             <InputWithLabel<InsertCustomerSchemaType>
-              fieldTitle="Last Name"
+              fieldTitle="Last Name."
               nameInSchema="lastName"
             />
             <InputWithLabel<InsertCustomerSchemaType>
